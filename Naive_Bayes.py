@@ -9,7 +9,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # Dataset path
-dataset_path = "ravdess_data"
+dataset_path = "Ravadess"
 
 X = []
 y = []

@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
-dataset_path = "ravdess_data"
+dataset_path = "Ravadess"
 
 X = []
 y = []
@@ -94,3 +94,17 @@ print(classification_report(y_test, pred))
 
 print("\nConfusion Matrix:\n")
 print(confusion_matrix(y_test, pred))
+
+import pandas as pd
+
+importance = pd.DataFrame({
+    "feature": range(len(model.feature_importances_)),
+    "importance": model.feature_importances_
+})
+
+print(
+    importance.sort_values(
+        by="importance",
+        ascending=False
+    ).head(10)
+)

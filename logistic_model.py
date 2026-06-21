@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 
 
-dataset_path = "ravdess_data"
+dataset_path = "Ravadess"
 
 X = []
 y = []
@@ -101,7 +101,13 @@ print("Accuracy:", accuracy_score(y_test, pred))
 
 
 print("\nClassification Report:\n")
-print(classification_report(y_test, pred))
+print(
+    classification_report(
+        y_test,
+        pred,
+        target_names=encoder.classes_
+    )
+)
 
 
 print("\nConfusion Matrix:\n")

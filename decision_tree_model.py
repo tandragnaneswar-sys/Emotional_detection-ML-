@@ -9,7 +9,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
-dataset_path = "ravdess_data"
+dataset_path = "Ravadess"
 
 X = []
 y = []
