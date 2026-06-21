@@ -9,7 +9,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
-dataset_path = "ravdess_data"
+dataset_path = "Ravadess"
 
 X = []
 y = []
@@ -101,22 +101,8 @@ print(classification_report(y_test, pred))
 print("\nConfusion Matrix:\n")
 print(confusion_matrix(y_test, pred))
 
+import joblib
 
-# 🎯 Predict emotion for new audio
-
-new_audio = "C:/Users/bhanu/OneDrive/Desktop/ML_project/ravdess_data/Actor_12/03-01-01-01-01-01-12.wav"
-
-# Extract features
-new_features = extract_features(new_audio)
-
-# Convert and scale
-new_features = np.array(new_features).reshape(1, -1)
-new_features = scaler.transform(new_features)
-
-# Predict
-prediction = model.predict(new_features)
-
-# Decode label
-emotion = encoder.inverse_transform(prediction)
-
-print("\nPredicted Emotion:", emotion[0])
+joblib.dump(model, "svm_model.pkl")
+joblib.dump(scaler, "scaler.pkl")
+joblib.dump(encoder, "encoder.pkl")
